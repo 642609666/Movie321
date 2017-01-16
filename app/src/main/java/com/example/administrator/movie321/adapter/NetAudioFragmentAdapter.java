@@ -216,7 +216,7 @@ public class NetAudioFragmentAdapter extends BaseAdapter {
         }
 
         public void setData(NetAudioBean.ListBean mediaItem) {
-            textView.setText("我是文本的内容");
+//            textView.setText("我是文本的内容");
         }
     }
 
