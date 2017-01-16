@@ -1,13 +1,13 @@
 package com.example.administrator.movie321.fragment;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.administrator.movie321.R;
+import com.example.administrator.movie321.adapter.NetAudioFragmentAdapter;
 import com.example.administrator.movie321.base.BaseFragment;
 import com.example.administrator.movie321.bean.NetAudioBean;
 import com.example.administrator.movie321.utils.CacheUtils;
@@ -18,6 +18,8 @@ import org.xutils.common.Callback;
 import org.xutils.common.util.LogUtil;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,6 +35,7 @@ public class NetMusicFragment extends BaseFragment {
     ProgressBar progressbar;
     @Bind(R.id.tv_nomedia)
     TextView tvNomedia;
+    private NetAudioFragmentAdapter myAdapter;
 
     @Override
     public View initView() {
@@ -82,7 +85,21 @@ public class NetMusicFragment extends BaseFragment {
 
     private void processData(String json) {
         NetAudioBean netAudioBean = paraseJons(json);
-        Log.e("TAG", "+++++" + netAudioBean.getList().get(0).getText());
+        //Log.e("TAG", "+++++" + netAudioBean.getList().get(0).getText());
+        //设置适配器
+        List<NetAudioBean.ListBean> datas = netAudioBean.getList();
+        if (datas != null && datas.size() > 0) {
+            //有视频
+            tvNomedia.setVisibility(View.GONE);
+            //设置适配器
+            myAdapter = new NetAudioFragmentAdapter(mContext, datas);
+            listview.setAdapter(myAdapter);
+        } else {
+            //没有视频
+            tvNomedia.setVisibility(View.VISIBLE);
+        }
+
+        progressbar.setVisibility(View.GONE);
     }
 
     /**

@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.example.administrator.movie321.R;
 import com.example.administrator.movie321.SystemVideoPlayerActivity;
 import com.example.administrator.movie321.base.BaseFragment;
-import com.example.administrator.movie321.bean.LocalVideoAdapter;
+import com.example.administrator.movie321.adapter.LocalVideoAdapter;
 import com.example.administrator.movie321.bean.LocalVideoBean;
 
 import java.io.Serializable;

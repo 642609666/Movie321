@@ -16,7 +16,7 @@ import com.example.administrator.movie321.R;
 import com.example.administrator.movie321.SystemVideoPlayerActivity;
 import com.example.administrator.movie321.base.BaseFragment;
 import com.example.administrator.movie321.bean.LocalVideoBean;
-import com.example.administrator.movie321.bean.NetVideoAdapter;
+import com.example.administrator.movie321.adapter.NetVideoAdapter;
 import com.example.administrator.movie321.utils.CacheUtils;
 import com.example.administrator.movie321.utils.Constants;
 

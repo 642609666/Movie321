@@ -1,4 +1,4 @@
-package com.example.administrator.movie321.bean;
+package com.example.administrator.movie321.adapter;
 
 import android.content.Context;
 import android.text.format.Formatter;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.movie321.R;
+import com.example.administrator.movie321.bean.LocalVideoBean;
 import com.example.administrator.movie321.utils.Utils;
 
 import java.util.List;
