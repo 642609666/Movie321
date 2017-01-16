@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "C:\\android\\Movie321\\vitamio-sample\\build\\intermediates\\res\\merged\\debug\\layout\\mediaplayer_1.xml",
+        "source": "C:\\android\\Movie321\\vitamio-sample\\res\\layout\\mediaplayer_1.xml"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\vitamio-sample\\build\\intermediates\\res\\merged\\debug\\layout\\videoview.xml",
+        "source": "C:\\android\\Movie321\\vitamio-sample\\res\\layout\\videoview.xml"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\vitamio-sample\\build\\intermediates\\res\\merged\\debug\\layout\\videobuffer.xml",
+        "source": "C:\\android\\Movie321\\vitamio-sample\\res\\layout\\videobuffer.xml"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\vitamio-sample\\build\\intermediates\\res\\merged\\debug\\layout\\mediaplayer_3.xml",
+        "source": "C:\\android\\Movie321\\vitamio-sample\\res\\layout\\mediaplayer_3.xml"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\vitamio-sample\\build\\intermediates\\res\\merged\\debug\\layout\\subtitle2.xml",
+        "source": "C:\\android\\Movie321\\vitamio-sample\\res\\layout\\subtitle2.xml"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\vitamio-sample\\build\\intermediates\\res\\merged\\debug\\layout\\media_metadata.xml",
+        "source": "C:\\android\\Movie321\\vitamio-sample\\res\\layout\\media_metadata.xml"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\vitamio-sample\\build\\intermediates\\res\\merged\\debug\\layout\\subtitle1.xml",
+        "source": "C:\\android\\Movie321\\vitamio-sample\\res\\layout\\subtitle1.xml"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\vitamio-sample\\build\\intermediates\\res\\merged\\debug\\layout\\mediacontroller.xml",
+        "source": "C:\\android\\Movie321\\vitamio-sample\\build\\intermediates\\exploded-aar\\Movie321\\vitamio\\unspecified\\res\\layout\\mediacontroller.xml"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\vitamio-sample\\build\\intermediates\\res\\merged\\debug\\layout\\mediaplayer_2.xml",
+        "source": "C:\\android\\Movie321\\vitamio-sample\\res\\layout\\mediaplayer_2.xml"
+    }
+]

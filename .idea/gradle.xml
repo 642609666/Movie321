@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.14.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Android-MaterialRefreshLayout-master" />
+            <option value="$PROJECT_DIR$/Android应用源码音乐实时跳动频谱显示Demo" />
+            <option value="$PROJECT_DIR$/MaterialRefresh_library" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/binderService" />
+            <option value="$PROJECT_DIR$/myapplication" />
+            <option value="$PROJECT_DIR$/speechDemo" />
+            <option value="$PROJECT_DIR$/vitamio" />
+            <option value="$PROJECT_DIR$/vitamio-sample" />
+            <option value="$PROJECT_DIR$/xUtils3-master" />
+            <option value="$PROJECT_DIR$/xutils" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

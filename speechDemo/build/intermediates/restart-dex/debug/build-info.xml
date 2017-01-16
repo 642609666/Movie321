@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="22"
+    density="mdpi"
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="282086785849538"
+    token="-4607363004297920494"
+    verifier="FULL_BUILD_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="318" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="398" />
+    <task
+        name="verifier"
+        duration="122" />
+
+    <artifact
+        location="C:\android\Movie321\speechDemo\build\outputs\apk\speechDemo-debug.apk"
+        type="MAIN" />
+
+    <build
+        timestamp="282086785849538"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\android\Movie321\speechDemo\build\outputs\apk\speechDemo-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

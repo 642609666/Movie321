@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\android\\Movie321\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\main_setting_btn_np.xml",
+        "source": "C:\\android\\Movie321\\speechDemo\\src\\main\\res\\drawable\\main_setting_btn_np.xml"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\list_bg_color.xml",
+        "source": "C:\\android\\Movie321\\speechDemo\\src\\main\\res\\drawable\\list_bg_color.xml"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\setting.png",
+        "source": "C:\\android\\Movie321\\speechDemo\\src\\main\\res\\drawable\\setting.png"
+    },
+    {
+        "merged": "C:\\android\\Movie321\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\setting_p.png",
+        "source": "C:\\android\\Movie321\\speechDemo\\src\\main\\res\\drawable\\setting_p.png"
+    }
+]

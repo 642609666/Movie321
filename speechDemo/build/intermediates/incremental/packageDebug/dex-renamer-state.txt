@@ -1,0 +1,7 @@
+#Sun Jan 15 17:00:48 CST 2017
+base.0=C\:\\android\\Movie321\\speechDemo\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_e32013ee60ed5582b598d4a4116c024b5dfeb102
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\android\\Movie321\\speechDemo\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_ceb2473bb698a4274f7e4c78e32f183769248a1f\\classes.dex
+base.1=C\:\\android\\Movie321\\speechDemo\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_ceb2473bb698a4274f7e4c78e32f183769248a1f
+file.0=C\:\\android\\Movie321\\speechDemo\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_e32013ee60ed5582b598d4a4116c024b5dfeb102\\classes.dex

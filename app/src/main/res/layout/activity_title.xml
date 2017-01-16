@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.administrator.movie321.view.TitleBarView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#ff3097fd"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/ic_topbanner_logo" />
+
+    <TextView
+        android:id="@+id/tv_sousuo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/selector_tv_bg"
+        android:clickable="true"
+        android:drawableLeft="@drawable/selector_tv_sousuo"
+        android:drawablePadding="5dp"
+        android:text="全网搜索..."
+        android:textColor="@drawable/selector_tv_text" />
+
+    <RelativeLayout
+        android:id="@+id/rl_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_topbanner_game" />
+
+        <ImageView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_alignRight="@id/tv_game"
+            android:src="@drawable/ic_game_red" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_topbanner_record" />
+</com.example.administrator.movie321.view.TitleBarView>

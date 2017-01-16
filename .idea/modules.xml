@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-MaterialRefreshLayout-master/Android-MaterialRefreshLayout-master.iml" filepath="$PROJECT_DIR$/Android-MaterialRefreshLayout-master/Android-MaterialRefreshLayout-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android应用源码音乐实时跳动频谱显示Demo/Android应用源码音乐实时跳动频谱显示Demo.iml" filepath="$PROJECT_DIR$/Android应用源码音乐实时跳动频谱显示Demo/Android应用源码音乐实时跳动频谱显示Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MaterialRefresh_library/MaterialRefresh_library.iml" filepath="$PROJECT_DIR$/MaterialRefresh_library/MaterialRefresh_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Movie321.iml" filepath="$PROJECT_DIR$/Movie321.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/binderService/binderService.iml" filepath="$PROJECT_DIR$/binderService/binderService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myapplication/myapplication.iml" filepath="$PROJECT_DIR$/myapplication/myapplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/speechDemo/speechDemo.iml" filepath="$PROJECT_DIR$/speechDemo/speechDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vitamio/vitamio.iml" filepath="$PROJECT_DIR$/vitamio/vitamio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vitamio-sample/vitamio-sample.iml" filepath="$PROJECT_DIR$/vitamio-sample/vitamio-sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xUtils3-master/xUtils3-master.iml" filepath="$PROJECT_DIR$/xUtils3-master/xUtils3-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xutils/xutils.iml" filepath="$PROJECT_DIR$/xutils/xutils.iml" />
+    </modules>
+  </component>
+</project>
