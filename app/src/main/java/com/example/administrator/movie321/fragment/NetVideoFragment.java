@@ -18,7 +18,7 @@ import com.example.administrator.movie321.base.BaseFragment;
 import com.example.administrator.movie321.bean.LocalVideoBean;
 import com.example.administrator.movie321.bean.NetVideoAdapter;
 import com.example.administrator.movie321.utils.CacheUtils;
-import com.example.administrator.movie321.utils.Constant;
+import com.example.administrator.movie321.utils.Constants;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -102,7 +102,7 @@ public class NetVideoFragment extends BaseFragment {
 //        pd = new ProgressDialog(mContext);
 //        pd.setTitle("请稍后....正在加载");
 //        pd.show();
-       String json = CacheUtils.getString(mContext,Constant.NET_URL);
+       String json = CacheUtils.getString(mContext, Constants.NET_URL);
        //判断json是不是为空数据
         if(!TextUtils.isEmpty(json)) {
            processData(json);
@@ -115,12 +115,12 @@ public class NetVideoFragment extends BaseFragment {
      */
     private void getDataFromNet() {
         //网络的路径
-        RequestParams params = new RequestParams(Constant.NET_URL);
+        RequestParams params = new RequestParams(Constants.NET_URL);
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 //Log.e("TAG", "result === " + result);
-                CacheUtils.putString(mContext,Constant.NET_URL,result);
+                CacheUtils.putString(mContext, Constants.NET_URL,result);
 
                 processData(result);
 

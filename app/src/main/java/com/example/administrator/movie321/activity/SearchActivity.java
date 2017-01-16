@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.administrator.movie321.R;
 import com.example.administrator.movie321.bean.SearchAdapter;
 import com.example.administrator.movie321.bean.SearchBean;
-import com.example.administrator.movie321.utils.Constant;
+import com.example.administrator.movie321.utils.Constants;
 import com.example.administrator.movie321.utils.JsonParser;
 import com.google.gson.Gson;
 import com.iflytek.cloud.InitListener;
@@ -104,7 +104,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         }
         if (!TextUtils.isEmpty(word)) {
 
-            String url = Constant.NET_SEARCH_URL + word;
+            String url = Constants.NET_SEARCH_URL + word;
             getDataFromNet(url);
 
 

@@ -1,5 +1,7 @@
 package com.example.administrator.movie321.fragment;
 
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -7,6 +9,15 @@ import android.widget.TextView;
 
 import com.example.administrator.movie321.R;
 import com.example.administrator.movie321.base.BaseFragment;
+import com.example.administrator.movie321.bean.NetAudioBean;
+import com.example.administrator.movie321.utils.CacheUtils;
+import com.example.administrator.movie321.utils.Constants;
+import com.google.gson.Gson;
+
+import org.xutils.common.Callback;
+import org.xutils.common.util.LogUtil;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,7 +44,56 @@ public class NetMusicFragment extends BaseFragment {
     @Override
     public void init() {
         super.init();
+        String saveJson = CacheUtils.getString(mContext, Constants.NET_AUDIO_URL);
+        if (!TextUtils.isEmpty(saveJson)) {
+            processData(saveJson);
+        }
 
+        getDataFromNet();
+    }
+
+    private void getDataFromNet() {
+        RequestParams reques = new RequestParams(Constants.NET_AUDIO_URL);
+        x.http().get(reques, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+
+                CacheUtils.putString(mContext, Constants.NET_AUDIO_URL, result);
+                LogUtil.e("onSuccess==" + result);
+                processData(result);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                LogUtil.e("onError==" + ex.getMessage());
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+                LogUtil.e("onCancelled==" + cex.getMessage());
+            }
+
+            @Override
+            public void onFinished() {
+                LogUtil.e("onFinished==");
+            }
+        });
+    }
+
+    private void processData(String json) {
+        NetAudioBean netAudioBean = paraseJons(json);
+        Log.e("TAG", "+++++" + netAudioBean.getList().get(0).getText());
+    }
+
+    /**
+     * json解析数据
+     *
+     * @param json
+     * @return
+     */
+    private NetAudioBean paraseJons(String json) {
+        NetAudioBean netAudioBean = new Gson().fromJson(json, NetAudioBean.class);
+        return netAudioBean;
     }
 
     /**
