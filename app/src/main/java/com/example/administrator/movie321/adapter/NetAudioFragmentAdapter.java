@@ -13,9 +13,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.administrator.movie321.R;
 import com.example.administrator.movie321.bean.NetAudioBean;
-import com.example.administrator.movie321.utils.DensityUtil;
 import com.example.administrator.movie321.utils.Utils;
 
+import org.xutils.common.util.DensityUtil;
 import org.xutils.image.ImageOptions;
 import org.xutils.x;
 
@@ -359,7 +359,7 @@ public class NetAudioFragmentAdapter extends BaseAdapter {
                     //包裹类型
                     .setSize(ViewGroup.LayoutParams.WRAP_CONTENT, -2)
                     //设置圆角
-                    .setRadius(DensityUtil.dip2px(mContext, 5))
+                    .setRadius(DensityUtil.dip2px(5))
                     .setIgnoreGif(false)//是否忽略gif图。false表示不忽略。不写这句，默认是true
                     .setImageScaleType(ImageView.ScaleType.CENTER_CROP)
                     .setLoadingDrawableId(R.drawable.video_default)
