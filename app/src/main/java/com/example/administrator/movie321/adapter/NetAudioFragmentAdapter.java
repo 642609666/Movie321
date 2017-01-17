@@ -8,12 +8,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.administrator.movie321.R;
 import com.example.administrator.movie321.bean.NetAudioBean;
 import com.example.administrator.movie321.utils.Utils;
 
+import org.xutils.x;
+
 import java.util.List;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 /**
@@ -217,6 +221,39 @@ public class NetAudioFragmentAdapter extends BaseAdapter {
             llDownload = (LinearLayout) convertView.findViewById(R.id.ll_download);
         }
 
+        /**
+         * 设置公共的数据
+         *
+         * @param mediaItem
+         */
+        public void setData(NetAudioBean.ListBean mediaItem) {
+            if (mediaItem.getU() != null && mediaItem.getU().getHeader() != null && mediaItem.getU().getHeader().get(0) != null) {
+                x.image().bind(ivHeadpic, mediaItem.getU().getHeader().get(0));
+            }
+            if (mediaItem.getU() != null && mediaItem.getU().getName() != null) {
+                tvName.setText(mediaItem.getU().getName() + "");
+            }
+
+            tvTimeRefresh.setText(mediaItem.getPasstime());
+
+            //设置标签
+            List<NetAudioBean.ListBean.TagsBean> tagsEntities = mediaItem.getTags();
+            if (tagsEntities != null && tagsEntities.size() > 0) {
+                StringBuffer buffer = new StringBuffer();
+                for (int i = 0; i < tagsEntities.size(); i++) {
+                    buffer.append(tagsEntities.get(i).getName() + " ");
+                }
+                tvVideoKindText.setText(buffer.toString());
+            }
+
+            //设置点赞，踩,转发
+
+            tvShenheDingNumber.setText(mediaItem.getUp());
+            tvShenheCaiNumber.setText(mediaItem.getDown() + "");
+            tvPostsNumber.setText(mediaItem.getForward() + "");
+
+        }
+
     }
 
     class VideoHoder extends BaseViewHolder {
@@ -240,56 +277,73 @@ public class NetAudioFragmentAdapter extends BaseAdapter {
             jcvVideoplayer = (JCVideoPlayerStandard) convertView.findViewById(R.id.jcv_videoplayer);
         }
 
+        public void setData(NetAudioBean.ListBean mediaItem) {
+            super.setData(mediaItem);
+
+            //设置文本-所有的都有,只有广告没有哦
+            tvContext.setText(mediaItem.getText() + "_" + mediaItem.getType());
+
+            //视频特有的------------------------
+            //第一个参数是视频播放地址，第二个参数是显示封面的地址，第三参数是标题
+            boolean setUp = jcvVideoplayer.setUp(
+                    mediaItem.getVideo().getVideo().get(0), JCVideoPlayer.SCREEN_LAYOUT_LIST,
+                    "");
+            //加载图片
+            if (setUp) {
+//                ImageLoader.getInstance().displayImage(mediaItem.getVideo().getThumbnail().get(0),
+//                        jcvVideoplayer.thumbImageView);
+                Glide.with(mContext).load(mediaItem.getVideo().getThumbnail().get(0)).into(jcvVideoplayer.thumbImageView);
+            }
+            tvPlayNums.setText(mediaItem.getVideo().getPlaycount() + "次播放");
+            tvVideoDuration.setText(utils.stringForTime(mediaItem.getVideo().getDuration() * 1000) + "");
+        }
+    }
+
+    class ImageHolder {
+        private TextView textView;
+
+        public ImageHolder(View convertView) {
+            textView = (TextView) convertView.findViewById(R.id.textView);
+        }
 
         public void setData(NetAudioBean.ListBean mediaItem) {
-
+            textView.setText("我是图片的内容");
         }
     }
-        class ImageHolder {
-            private TextView textView;
 
-            public ImageHolder(View convertView) {
-                textView = (TextView) convertView.findViewById(R.id.textView);
-            }
+    class TextHolder {
+        private TextView textView;
 
-            public void setData(NetAudioBean.ListBean mediaItem) {
-                textView.setText("我是图片的内容");
-            }
+        public TextHolder(View convertView) {
+            textView = (TextView) convertView.findViewById(R.id.textView);
         }
 
-        class TextHolder {
-            private TextView textView;
-
-            public TextHolder(View convertView) {
-                textView = (TextView) convertView.findViewById(R.id.textView);
-            }
-
-            public void setData(NetAudioBean.ListBean mediaItem) {
+        public void setData(NetAudioBean.ListBean mediaItem) {
 //            textView.setText("我是文本的内容");
-            }
-        }
-
-        class GifHolder {
-            private TextView textView;
-
-            public GifHolder(View convertView) {
-                textView = (TextView) convertView.findViewById(R.id.textView);
-            }
-
-            public void setData(NetAudioBean.ListBean mediaItem) {
-                textView.setText("我是GIF的内容");
-            }
-        }
-
-        class ADHolder {
-            private TextView textView;
-
-            public ADHolder(View convertView) {
-                textView = (TextView) convertView.findViewById(R.id.textView);
-            }
-
-            public void setData(NetAudioBean.ListBean mediaItem) {
-                textView.setText("我是广告的内容");
-            }
         }
     }
+
+    class GifHolder {
+        private TextView textView;
+
+        public GifHolder(View convertView) {
+            textView = (TextView) convertView.findViewById(R.id.textView);
+        }
+
+        public void setData(NetAudioBean.ListBean mediaItem) {
+            textView.setText("我是GIF的内容");
+        }
+    }
+
+    class ADHolder {
+        private TextView textView;
+
+        public ADHolder(View convertView) {
+            textView = (TextView) convertView.findViewById(R.id.textView);
+        }
+
+        public void setData(NetAudioBean.ListBean mediaItem) {
+            textView.setText("我是广告的内容");
+        }
+    }
+}
