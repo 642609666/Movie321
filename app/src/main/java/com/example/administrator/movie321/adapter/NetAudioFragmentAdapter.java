@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -379,15 +380,16 @@ public class NetAudioFragmentAdapter extends BaseAdapter {
         }
     }
 
-    class ADHolder {
-        private TextView textView;
+    static class ADHolder {
+        TextView tvContext;
+        ImageView ivImageIcon;
+        Button btnInstall;
 
-        public ADHolder(View convertView) {
-            textView = (TextView) convertView.findViewById(R.id.textView);
-        }
-
-        public void setData(NetAudioBean.ListBean mediaItem) {
-            textView.setText("我是广告的内容");
+        ADHolder(View convertView) {
+            //中间公共部分 -所有的都有
+            tvContext = (TextView) convertView.findViewById(R.id.tv_context);
+            btnInstall = (Button) convertView.findViewById(R.id.btn_install);
+            ivImageIcon = (ImageView) convertView.findViewById(R.id.iv_image_icon);
         }
     }
 }
