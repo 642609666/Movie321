@@ -7,7 +7,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.example.administrator.movie321.R;
 import com.example.administrator.movie321.activity.ShowImageAndGifActivity;
 import com.example.administrator.movie321.adapter.NetAudioFragmentAdapter;
@@ -41,11 +44,16 @@ public class NetMusicFragment extends BaseFragment {
     private NetAudioFragmentAdapter myAdapter;
     List<NetAudioBean.ListBean> datas;
 
+    @Bind(R.id.refreshmusic)
+    MaterialRefreshLayout refreshLayout;
+
+
+    private boolean isLoadMore = false;
+
     @Override
     public View initView() {
         View view = View.inflate(mContext, R.layout.fragment_net_audio, null);
-        ButterKnife.bind(this, view);
-
+        ButterKnife.bind(NetMusicFragment.this, view);
         //设置点击事件
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -53,16 +61,16 @@ public class NetMusicFragment extends BaseFragment {
 
 
                 NetAudioBean.ListBean listEntity = datas.get(position);
-                if(listEntity !=null ){
+                if (listEntity != null) {
                     //3.传递视频列表
-                    Intent intent = new Intent(mContext,ShowImageAndGifActivity.class);
-                    if(listEntity.getType().equals("gif")){
+                    Intent intent = new Intent(mContext, ShowImageAndGifActivity.class);
+                    if (listEntity.getType().equals("gif")) {
                         String url = listEntity.getGif().getImages().get(0);
-                        intent.putExtra("url",url);
+                        intent.putExtra("url", url);
                         mContext.startActivity(intent);
-                    }else if(listEntity.getType().equals("image")){
+                    } else if (listEntity.getType().equals("image")) {
                         String url = listEntity.getImage().getBig().get(0);
-                        intent.putExtra("url",url);
+                        intent.putExtra("url", url);
                         mContext.startActivity(intent);
                     }
                 }
@@ -70,8 +78,27 @@ public class NetMusicFragment extends BaseFragment {
 
             }
         });
-
+//监听上啦和下拉刷新
+        refreshLayout.setMaterialRefreshListener(new MyMaterialRefreshListener());
         return view;
+    }
+
+    class MyMaterialRefreshListener extends MaterialRefreshListener {
+
+        @Override
+        public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+            // Toast.makeText(mContext, "下拉", Toast.LENGTH_SHORT).show();
+            isLoadMore = false;
+            getDataFromNet();
+        }
+
+        @Override
+        public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
+            super.onRefreshLoadMore(materialRefreshLayout);
+            Toast.makeText(mContext, "上拉", Toast.LENGTH_SHORT).show();
+            isLoadMore = true;
+            getDataFromNet();
+        }
     }
 
     @Override
@@ -94,6 +121,15 @@ public class NetMusicFragment extends BaseFragment {
                 CacheUtils.putString(mContext, Constants.NET_AUDIO_URL, result);
                 LogUtil.e("onSuccess==" + result);
                 processData(result);
+
+
+                if (!isLoadMore) {
+                    //完成刷新
+                    refreshLayout.finishRefresh();
+                } else {
+                    //把上拉的隐藏
+                    refreshLayout.finishRefreshLoadMore();
+                }
             }
 
             @Override
@@ -114,19 +150,27 @@ public class NetMusicFragment extends BaseFragment {
     }
 
     private void processData(String json) {
-        NetAudioBean netAudioBean = paraseJons(json);
-        //Log.e("TAG", "+++++" + netAudioBean.getList().get(0).getText());
-        //设置适配器
-         datas = netAudioBean.getList();
-        if (datas != null && datas.size() > 0) {
-            //有视频
-            tvNomedia.setVisibility(View.GONE);
+        if (!isLoadMore) {
+            NetAudioBean netAudioBean = paraseJons(json);
+            //Log.e("TAG", "+++++" + netAudioBean.getList().get(0).getText());
             //设置适配器
-            myAdapter = new NetAudioFragmentAdapter(mContext, datas);
-            listview.setAdapter(myAdapter);
+            datas = netAudioBean.getList();
+            if (datas != null && datas.size() > 0) {
+                //有视频
+                tvNomedia.setVisibility(View.GONE);
+                //设置适配器
+                myAdapter = new NetAudioFragmentAdapter(mContext, datas);
+                listview.setAdapter(myAdapter);
+            } else {
+                //没有视频
+                tvNomedia.setVisibility(View.VISIBLE);
+            }
         } else {
-            //没有视频
-            tvNomedia.setVisibility(View.VISIBLE);
+            //加载更多,利用假数据实现
+            NetAudioBean netAudioBean = paraseJons(json);
+            datas.addAll(netAudioBean.getList());
+            //刷新适配器
+            myAdapter.notifyDataSetChanged();
         }
 
         progressbar.setVisibility(View.GONE);
